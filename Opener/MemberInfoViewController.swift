@@ -34,8 +34,8 @@ class MemberInfoViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-        })
+        }
     }
 }
