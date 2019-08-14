@@ -20,8 +20,7 @@ class MemberInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        timeLabel.text = "\(Date())"
     }
     
     override func viewDidAppear(_ animated: Bool) {
