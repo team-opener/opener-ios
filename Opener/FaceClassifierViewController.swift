@@ -50,9 +50,12 @@ class FaceClassifierViewController: VideoCaptureViewController {
                     if let results = request.results {
                         // 신뢰할 수 있는 결과면 표시합니다.
                         if let result = self.highConfidenceVisionResult(from: results, threshold: 0.1) {
-                            self.detectedMember = Member(name: result.identifier, isEntry: self.isEntry)
-                            self.capturePhoto()
-                            self.teardownAVCapture()
+                            if self.detectedMember == nil {
+                                self.detectedMember = Member(name: result.identifier, isEntry: self.isEntry)
+                                self.capturePhoto()
+                                self.teardownAVCapture()
+                                self.uploadMemberToServer()
+                            }
                         }
                     }
                 }
@@ -80,8 +83,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
         let encoder = JSONEncoder()
         let data = try? encoder.encode(detectedMember)
         
-        //TODO: URL 추가해야함
-        let uploadURL = URL(string: "http://")!
+        let uploadURL = URL(string: "http://192.168.1.68:3000/entry")!
         var request = URLRequest(url: uploadURL)
         request.httpMethod = "POST"
 

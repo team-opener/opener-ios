@@ -100,6 +100,7 @@ class VideoCaptureViewController: UIViewController, AVCaptureVideoDataOutputSamp
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         // 하위 클래스에서 구현합니다.
     }
-
+    
+    
 }
 
