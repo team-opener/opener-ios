@@ -23,8 +23,6 @@ class VideoCaptureViewController: UIViewController, AVCaptureVideoDataOutputSamp
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupAVCapture()
     }
 
     func setupAVCapture() {
@@ -65,7 +63,9 @@ class VideoCaptureViewController: UIViewController, AVCaptureVideoDataOutputSamp
         }
         session.addOutput(videoDataOutput)
         videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
-        
+    }
+    
+    func setupLivePreview() {
         // 프리뷰를 설정합니다.
         previewLayer = AVCaptureVideoPreviewLayer(session: session)
         previewLayer.videoGravity = .resizeAspectFill

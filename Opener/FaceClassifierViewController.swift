@@ -23,7 +23,14 @@ class FaceClassifierViewController: VideoCaptureViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupAVCapture()
+        setupVision()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        startCaptureSession()
+        setupLivePreview()
     }
     
     
@@ -43,10 +50,10 @@ class FaceClassifierViewController: VideoCaptureViewController {
                     if let results = request.results {
                         // 신뢰할 수 있는 결과면 표시합니다.
                         if let result = self.highConfidenceVisionResult(from: results, threshold: 0.1) {
-//                            self.capturePhoto()
+                            
                             self.faceObservationResult = result
+                            self.capturePhoto()
                             self.teardownAVCapture()
-                            self.showVisionResult()
                         }
                     }
                 }
@@ -72,16 +79,6 @@ class FaceClassifierViewController: VideoCaptureViewController {
     
     
     
-    func showVisionResult() {
-        performSegue(withIdentifier: "LiveViewToMemberInfo", sender: self)
-    }
-    
-    override func setupAVCapture() {
-        super.setupAVCapture()
-        setupVision()
-        startCaptureSession()
-    }
-    
     override func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return
@@ -101,6 +98,11 @@ class FaceClassifierViewController: VideoCaptureViewController {
         }
         let photo = UIImage(data: photoData)
         capturedPhoto = photo
+        showVisionResult()
+    }
+    
+    func showVisionResult() {
+        performSegue(withIdentifier: "LiveViewToMemberInfo", sender: self)
     }
     
     // MARK: - Navigation
