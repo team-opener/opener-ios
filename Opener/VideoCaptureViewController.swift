@@ -14,9 +14,12 @@ class VideoCaptureViewController: UIViewController, AVCaptureVideoDataOutputSamp
     
     //MARK: AV 프로퍼티
     
-    var session = AVCaptureSession()
-    var previewLayer: AVCaptureVideoPreviewLayer!
-    var capturePhotoOutput = AVCapturePhotoOutput()
+    private var session = AVCaptureSession()
+    private var previewLayer: AVCaptureVideoPreviewLayer!
+    private var capturePhotoOutput = AVCapturePhotoOutput()
+    private let videoDataOutput = AVCaptureVideoDataOutput()
+    
+    private let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,11 +58,24 @@ class VideoCaptureViewController: UIViewController, AVCaptureVideoDataOutputSamp
         }
         session.addOutput(capturePhotoOutput)
         
+        guard session.canAddOutput(videoDataOutput) else {
+            os_log("비디오 데이터 출력을 세션에 추가할 수 없음", log: OSLog.default, type: .error)
+            session.commitConfiguration()
+            return
+        }
+        session.addOutput(videoDataOutput)
+        videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
+        
         // 프리뷰를 설정합니다.
         previewLayer = AVCaptureVideoPreviewLayer(session: session)
         previewLayer.videoGravity = .resizeAspectFill
         previewLayer.frame = view.bounds
         view.layer.addSublayer(previewLayer)
+    }
+    
+    func teardownAVCapture() {
+        previewLayer = nil
+        session.stopRunning()
     }
     
     func startCaptureSession() {
