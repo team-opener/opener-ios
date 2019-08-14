@@ -9,6 +9,6 @@
 import Foundation
 
 struct Member: Codable {
-    var name: String
-    var isEntry: Bool
+    var name = "[이름]"
+    var isEntry = true
 }

@@ -17,7 +17,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
     private var requests = [VNRequest]()
     
     //MARK: 프로퍼티
-    var faceObservationResult: VNClassificationObservation!
+    var detectedMember: Member!
     var capturedPhoto: UIImage?
     var isEntry: Bool!
     
@@ -50,8 +50,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
                     if let results = request.results {
                         // 신뢰할 수 있는 결과면 표시합니다.
                         if let result = self.highConfidenceVisionResult(from: results, threshold: 0.1) {
-                            
-                            self.faceObservationResult = result
+                            self.detectedMember = Member(name: result.identifier, isEntry: self.isEntry)
                             self.capturePhoto()
                             self.teardownAVCapture()
                         }
@@ -112,9 +111,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
         guard let destination = segue.destination as? MemberInfoViewController else {
             return
         }
-        
-        destination.name = faceObservationResult.identifier
-        destination.confidence = faceObservationResult.confidence
+        destination.member = detectedMember
         destination.photo = capturedPhoto
     }
     

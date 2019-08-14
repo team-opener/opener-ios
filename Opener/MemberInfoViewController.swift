@@ -11,23 +11,19 @@ import UIKit
 class MemberInfoViewController: UIViewController {
     
     //MARK: 프로퍼티
-    
+    var member = Member()
     var photo: UIImage?
-    var name: String!
-    var confidence: Float!
     
     @IBOutlet weak var photoImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var confidenceLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         photoImageView.image = photo
-        nameLabel.text = name
-        confidenceLabel.text = "\(confidence! * 100)%"
+        nameLabel.text = member.name
         timeLabel.text = "\(Date())"
     }
     
