@@ -76,7 +76,31 @@ class FaceClassifierViewController: VideoCaptureViewController {
         return nil
     }
     
-    
+    func uploadMemberToServer() {
+        let encoder = JSONEncoder()
+        let data = try? encoder.encode(detectedMember)
+        
+        //TODO: URL 추가해야함
+        let uploadURL = URL(string: "http://")!
+        var request = URLRequest(url: uploadURL)
+        request.httpMethod = "POST"
+
+        request.httpBody = data
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                os_log("데이터 없음", log: OSLog.default, type: .error)
+                return
+            }
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [String: Any] {
+                print(responseJSON)
+            }
+        }
+
+        task.resume()
+        
+    }
     
     override func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {

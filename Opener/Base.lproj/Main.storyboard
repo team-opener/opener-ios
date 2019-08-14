@@ -89,7 +89,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="O6Q-Mx-c90">
-                                <rect key="frame" x="20" y="583.66666666666663" width="335" height="120.33333333333337"/>
+                                <rect key="frame" x="20" y="627.66666666666663" width="335" height="76.333333333333371"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0n-Nz-QMd">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="48"/>
@@ -97,14 +97,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신뢰도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocg-nd-XOa">
-                                        <rect key="frame" x="0.0" y="56" width="335" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgc-Uc-cpl">
-                                        <rect key="frame" x="0.0" y="100" width="335" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="56.000000000000007" width="335" height="20.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -125,7 +119,6 @@
                         <viewLayoutGuide key="safeArea" id="WDh-It-wF7"/>
                     </view>
                     <connections>
-                        <outlet property="confidenceLabel" destination="Ocg-nd-XOa" id="X5K-eI-zbn"/>
                         <outlet property="nameLabel" destination="S0n-Nz-QMd" id="RMl-qO-4Z1"/>
                         <outlet property="photoImageView" destination="NBn-z1-TAp" id="5wJ-L6-MRT"/>
                         <outlet property="timeLabel" destination="Sgc-Uc-cpl" id="9z7-PK-Y6a"/>
