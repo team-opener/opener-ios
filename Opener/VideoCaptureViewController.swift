@@ -66,6 +66,11 @@ class VideoCaptureViewController: UIViewController, AVCaptureVideoDataOutputSamp
         session.startRunning()
     }
     
+    func capturePhoto() {
+        let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+        capturePhotoOutput.capturePhoto(with: settings, delegate: self)
+    }
+    
     //MARK: AVCaptureVideoDataOutputSampleBufferDelegate
     
     /// 실시간으로 캡쳐되는 모든 이미지마다 호출됩니다.

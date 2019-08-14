@@ -57,6 +57,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
                     if let results = request.results {
                         // 신뢰할 수 있는 결과면 표시합니다.
                         if let result = self.highConfidenceVisionResult(from: results, threshold: 96) {
+                            self.capturePhoto()
                             self.showVisionResult(result)
                         }
                     }
@@ -81,7 +82,22 @@ class FaceClassifierViewController: VideoCaptureViewController {
         return nil
     }
     
+    
+    
     func showVisionResult(_ result: VNClassificationObservation) {
         performSegue(withIdentifier: "LiveViewToMemberInfo", sender: self)
     }
+    
+    override func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        
+    }
+    
+    override func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        guard let photoData = photo.fileDataRepresentation() else {
+            return
+        }
+        let photo = UIImage(data: photoData)
+        capturedPhoto = photo
+    }
+    
 }
