@@ -37,7 +37,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
                 DispatchQueue.main.async {
                     if let results = request.results {
                         // 신뢰할 수 있는 결과면 표시합니다.
-                        if let result = self.highConfidenceVisionResult(results, threshold: 96) {
+                        if let result = self.highConfidenceVisionResult(from: results, threshold: 96) {
                             
                             
                         }
@@ -52,7 +52,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
         
     }
     
-    func highConfidenceVisionResult(_ results: [Any], threshold: VNConfidence) -> VNClassificationObservation? {
+    func highConfidenceVisionResult(from results: [Any], threshold: VNConfidence) -> VNClassificationObservation? {
         guard let top = results.first! as? VNClassificationObservation else {
             os_log("잘못된 Vision Result 타입", log: OSLog.default, type: .error)
             return nil
