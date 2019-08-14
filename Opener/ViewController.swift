@@ -26,8 +26,7 @@ class ViewController: UIViewController {
     }
 
     func setupAVCapture() {
-        var deviceInput: AVCaptureDeviceInput
-        
+        // AVCapture를 설정합니다.
         session.sessionPreset = .vga640x480
         
         guard let frontCamera = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first else {
@@ -35,6 +34,7 @@ class ViewController: UIViewController {
             return
         }
         
+        let deviceInput: AVCaptureDeviceInput
         do {
             deviceInput = try AVCaptureDeviceInput(device: frontCamera)
         } catch {
@@ -56,6 +56,7 @@ class ViewController: UIViewController {
         }
         session.addOutput(capturePhotoOutput)
         
+        // 프리뷰를 설정합니다.
         previewLayer = AVCaptureVideoPreviewLayer(session: session)
         previewLayer.videoGravity = .resizeAspectFill
         previewLayer.frame = view.bounds
