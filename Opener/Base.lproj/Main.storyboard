@@ -69,6 +69,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="p9t-zL-rPZ" kind="showDetail" identifier="LiveViewToMemberInfo" id="UhH-e3-yRL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -77,30 +80,30 @@
         <!--Member Info View Controller-->
         <scene sceneID="sfA-x6-iF1">
             <objects>
-                <viewController id="p9t-zL-rPZ" customClass="MemberInfoViewController" customModule="Opener" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemberInfoViewController" id="p9t-zL-rPZ" customClass="MemberInfoViewController" customModule="Opener" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eKS-5b-TRo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NBn-z1-TAp">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0n-Nz-QMd">
-                                <rect key="frame" x="16" y="657" width="70" height="48"/>
+                                <rect key="frame" x="36" y="589" width="70" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="클래스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocg-nd-XOa">
-                                <rect key="frame" x="16" y="713" width="78" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="신뢰도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocg-nd-XOa">
+                                <rect key="frame" x="36" y="645" width="78" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgc-Uc-cpl">
-                                <rect key="frame" x="16" y="757" width="30" height="21"/>
+                                <rect key="frame" x="36" y="689" width="30" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -117,7 +120,7 @@
                         <viewLayoutGuide key="safeArea" id="WDh-It-wF7"/>
                     </view>
                     <connections>
-                        <outlet property="classLabel" destination="Ocg-nd-XOa" id="6XD-zx-YPw"/>
+                        <outlet property="confidenceLabel" destination="Ocg-nd-XOa" id="X5K-eI-zbn"/>
                         <outlet property="nameLabel" destination="S0n-Nz-QMd" id="RMl-qO-4Z1"/>
                         <outlet property="photoImageView" destination="NBn-z1-TAp" id="5wJ-L6-MRT"/>
                         <outlet property="timeLabel" destination="Sgc-Uc-cpl" id="9z7-PK-Y6a"/>
