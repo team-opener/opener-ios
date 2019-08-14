@@ -70,7 +70,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="p9t-zL-rPZ" kind="showDetail" identifier="LiveViewToMemberInfo" id="UhH-e3-yRL"/>
+                        <segue destination="p9t-zL-rPZ" kind="show" identifier="LiveViewToMemberInfo" id="UhH-e3-yRL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

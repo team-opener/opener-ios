@@ -17,7 +17,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
     private var requests = [VNRequest]()
     
     //MARK: 프로퍼티
-    var memberInfo: VNClassificationObservation!
+    var faceObservationResult: VNClassificationObservation!
     var capturedPhoto: UIImage?
     var isEntry: Bool!
     
@@ -38,18 +38,20 @@ class FaceClassifierViewController: VideoCaptureViewController {
         
         do {
             let visionModel = try VNCoreMLModel(for: MLModel(contentsOf: modelURL))
-            let faceClassification = VNCoreMLRequest(model: visionModel) { (request, error) in
+            let faceObservation = VNCoreMLRequest(model: visionModel) { (request, error) in
                 DispatchQueue.main.async {
                     if let results = request.results {
                         // 신뢰할 수 있는 결과면 표시합니다.
-                        if let result = self.highConfidenceVisionResult(from: results, threshold: 96) {
-                            self.capturePhoto()
-                            self.showVisionResult(result)
+                        if let result = self.highConfidenceVisionResult(from: results, threshold: 0.1) {
+//                            self.capturePhoto()
+                            self.faceObservationResult = result
+                            self.teardownAVCapture()
+                            self.showVisionResult()
                         }
                     }
                 }
             }
-            requests = [faceClassification]
+            requests = [faceObservation]
         } catch {
             os_log("ML 모델 로드 실패", log: OSLog.default, type: .error)
             return
@@ -70,7 +72,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
     
     
     
-    func showVisionResult(_ result: VNClassificationObservation) {
+    func showVisionResult() {
         performSegue(withIdentifier: "LiveViewToMemberInfo", sender: self)
     }
     
@@ -99,6 +101,19 @@ class FaceClassifierViewController: VideoCaptureViewController {
         }
         let photo = UIImage(data: photoData)
         capturedPhoto = photo
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard let destination = segue.destination as? MemberInfoViewController else {
+            return
+        }
+        
+        destination.name = faceObservationResult.identifier
+        destination.confidence = faceObservationResult.confidence
+        destination.photo = capturedPhoto
     }
     
 }

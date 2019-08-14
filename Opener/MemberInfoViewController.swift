@@ -12,6 +12,10 @@ class MemberInfoViewController: UIViewController {
     
     //MARK: 프로퍼티
     
+    var photo: UIImage?
+    var name: String!
+    var confidence: Float!
+    
     @IBOutlet weak var photoImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -20,6 +24,10 @@ class MemberInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        photoImageView.image = photo
+        nameLabel.text = name
+        confidenceLabel.text = "\(confidence! * 100)%"
         timeLabel.text = "\(Date())"
     }
     
@@ -27,20 +35,7 @@ class MemberInfoViewController: UIViewController {
         super.viewDidAppear(animated)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
-            self.dismiss(animated: true, completion: nil)
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         })
     }
-    
-    
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let source = segue.source as? FaceClassifierViewController else {
-            return
-        }
-        nameLabel.text = source.memberInfo.identifier
-        confidenceLabel.text = "\(source.memberInfo.confidence * 100)%"
-        photoImageView.image = source.capturedPhoto
-    }
-
 }
