@@ -36,8 +36,8 @@ class FaceClassifierViewController: ViewController {
             let faceClassification = VNCoreMLRequest(model: visionModel) { (request, error) in
                 DispatchQueue.main.async {
                     if let results = request.results {
-                        // 결과를 표시합니다.
-                        if let result = self.topVisionRequestResults(results) {
+                        // 신뢰할 수 있는 결과면 표시합니다.
+                        if let result = self.highConfidenceVisionResult(results, threshold: 96) {
                             
                             
                         }
@@ -52,14 +52,12 @@ class FaceClassifierViewController: ViewController {
         
     }
     
-    
-    
-    func topVisionRequestResults(_ results: [Any]) -> VNClassificationObservation? {
+    func highConfidenceVisionResult(_ results: [Any], threshold: VNConfidence) -> VNClassificationObservation? {
         guard let top = results.first! as? VNClassificationObservation else {
             os_log("잘못된 Vision Result 타입", log: OSLog.default, type: .error)
             return nil
         }
-        if top.confidence > 96 {
+        if top.confidence > threshold {
             return top
         }
         return nil
