@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--State Selection View Controller-->
         <scene sceneID="NyP-Fx-wOp">
             <objects>
-                <viewController id="sbk-Y2-3yc" sceneMemberID="viewController">
+                <viewController id="sbk-Y2-3yc" customClass="StateSelectionViewController" customModule="Opener" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="evC-lJ-cQo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="출"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" destinationCreationSelector="entrySelected:" id="BuT-Ah-Kp0"/>
+                                            <action selector="entryOrExitButtonTapped:" destination="sbk-Y2-3yc" eventType="touchUpInside" id="3wV-5S-buo"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0l-yR-UPY">
@@ -36,7 +36,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="입"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" destinationCreationSelector="exitSelected:" id="E1k-mj-tlx"/>
+                                            <action selector="entryOrExitButtonTapped:" destination="sbk-Y2-3yc" eventType="touchUpInside" id="XFc-Pe-dyi"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -62,9 +62,9 @@
         <!--Face Classifier View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FaceClassifierViewController" customModule="Opener" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FaceClassifierViewController" id="BYZ-38-t0r" customClass="FaceClassifierViewController" customModule="Opener" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -136,7 +136,4 @@
             <point key="canvasLocation" x="986.95652173913049" y="93.75"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="E1k-mj-tlx"/>
-    </inferredMetricsTieBreakers>
 </document>

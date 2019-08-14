@@ -19,21 +19,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
     //MARK: 프로퍼티
     var memberInfo: VNClassificationObservation!
     var capturedPhoto: UIImage?
-    private var isEntry: Bool!
-    
-    //MARK: Segue 액션
-    
-    @IBSegueAction func entrySelected(_ coder: NSCoder) -> FaceClassifierViewController? {
-        let viewController = FaceClassifierViewController()
-        viewController.isEntry = true
-        return viewController
-    }
-    
-    @IBSegueAction func exitSelected(_ coder: NSCoder) -> FaceClassifierViewController? {
-        let viewController = FaceClassifierViewController()
-        viewController.isEntry = true
-        return viewController
-    }
+    var isEntry: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
