@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import os.log
 
-class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+class VideoCaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate, AVCapturePhotoCaptureDelegate {
     
     //MARK: AV 프로퍼티
     
@@ -68,7 +68,15 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     //MARK: AVCaptureVideoDataOutputSampleBufferDelegate
     
+    /// 실시간으로 캡쳐되는 모든 이미지마다 호출됩니다.
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        // 하위 클래스에서 구현합니다.
+    }
+    
+    //MARK: AVCapturePhotoCaptureDelegate
+    
+    /// 사진 촬영 시 호출됩니다.
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         // 하위 클래스에서 구현합니다.
     }
 

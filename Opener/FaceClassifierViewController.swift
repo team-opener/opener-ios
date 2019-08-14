@@ -11,7 +11,7 @@ import AVFoundation
 import Vision
 import os.log
 
-class FaceClassifierViewController: ViewController {
+class FaceClassifierViewController: VideoCaptureViewController {
     
     //MARK: Vision 프로퍼티
     private var requests = [VNRequest]()
@@ -61,6 +61,10 @@ class FaceClassifierViewController: ViewController {
             return top
         }
         return nil
+    }
+    
+    func showVisionResult(_ result: VNClassificationObservation) {
+        
     }
 
 }
