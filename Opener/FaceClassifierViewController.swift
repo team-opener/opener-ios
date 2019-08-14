@@ -89,7 +89,16 @@ class FaceClassifierViewController: VideoCaptureViewController {
     }
     
     override func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+            return
+        }
         
+        let imageRequestHandler = VNImageRequestHandler.init(cvPixelBuffer: pixelBuffer, options: [:])
+        do {
+            try imageRequestHandler.perform(requests)
+        } catch {
+            return
+        }
     }
     
     override func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
