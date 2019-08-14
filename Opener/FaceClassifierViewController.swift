@@ -1,0 +1,68 @@
+//
+//  FaceClassifierViewController.swift
+//  Opener
+//
+//  Created by 김성현 on 14/08/2019.
+//  Copyright © 2019 Sunghyun Kim. All rights reserved.
+//
+
+import UIKit
+import AVFoundation
+import Vision
+import os.log
+
+class FaceClassifierViewController: ViewController {
+    
+    //MARK: Vision 프로퍼티
+    private var requests = [VNRequest]()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+    
+    
+    //MARK: Vision
+    
+    func setupVision() {
+        
+        guard let modelURL = Bundle.main.url(forResource: "FaceClassifier", withExtension: "mlmodelc") else {
+            os_log("ML 모델을 찾을 수 없음", log: OSLog.default, type: .error)
+            return
+        }
+        
+        do {
+            let visionModel = try VNCoreMLModel(for: MLModel(contentsOf: modelURL))
+            let faceClassification = VNCoreMLRequest(model: visionModel) { (request, error) in
+                DispatchQueue.main.async {
+                    if let results = request.results {
+                        // 결과를 표시합니다.
+                        if let result = self.topVisionRequestResults(results) {
+                            
+                            
+                        }
+                    }
+                }
+            }
+            requests = [faceClassification]
+        } catch {
+            os_log("ML 모델 로드 실패", log: OSLog.default, type: .error)
+            return
+        }
+        
+    }
+    
+    
+    
+    func topVisionRequestResults(_ results: [Any]) -> VNClassificationObservation? {
+        guard let top = results.first! as? VNClassificationObservation else {
+            os_log("잘못된 Vision Result 타입", log: OSLog.default, type: .error)
+            return nil
+        }
+        if top.confidence > 96 {
+            return top
+        }
+        return nil
+    }
+
+}

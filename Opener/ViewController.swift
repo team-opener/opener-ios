@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import os.log
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     //MARK: AV 프로퍼티
     
@@ -22,7 +22,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setupAVCapture()
-        startCaptureSession()
     }
 
     func setupAVCapture() {
@@ -65,6 +64,12 @@ class ViewController: UIViewController {
     
     func startCaptureSession() {
         session.startRunning()
+    }
+    
+    //MARK: AVCaptureVideoDataOutputSampleBufferDelegate
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        // 하위 클래스에서 구현합니다.
     }
 
 }
