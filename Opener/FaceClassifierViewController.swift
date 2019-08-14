@@ -74,6 +74,12 @@ class FaceClassifierViewController: VideoCaptureViewController {
         performSegue(withIdentifier: "LiveViewToMemberInfo", sender: self)
     }
     
+    override func setupAVCapture() {
+        super.setupAVCapture()
+        setupVision()
+        startCaptureSession()
+    }
+    
     override func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return
