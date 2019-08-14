@@ -9,7 +9,15 @@
 import UIKit
 
 class MemberInfoViewController: UIViewController {
-
+    
+    //MARK: 프로퍼티
+    
+    @IBOutlet weak var photoImageView: UIImageView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var classLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
