@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sbk-Y2-3yc">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,12 +8,63 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="NyP-Fx-wOp">
+            <objects>
+                <viewController id="sbk-Y2-3yc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="evC-lJ-cQo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GdZ-2q-h05">
+                                <rect key="frame" x="20" y="64" width="335" height="694"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44a-JY-Mit">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="337"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="출"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" destinationCreationSelector="entrySelected:" id="BuT-Ah-Kp0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0l-yR-UPY">
+                                        <rect key="frame" x="0.0" y="357" width="335" height="337"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="입"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" destinationCreationSelector="exitSelected:" id="E1k-mj-tlx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="44a-JY-Mit" firstAttribute="height" secondItem="W0l-yR-UPY" secondAttribute="height" id="sLk-Pt-1Ud"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iLK-y3-Iiz" firstAttribute="trailing" secondItem="GdZ-2q-h05" secondAttribute="trailing" constant="20" id="3Z9-6n-7m0"/>
+                            <constraint firstItem="GdZ-2q-h05" firstAttribute="leading" secondItem="iLK-y3-Iiz" secondAttribute="leading" constant="20" id="U6r-ZT-GmD"/>
+                            <constraint firstItem="iLK-y3-Iiz" firstAttribute="bottom" secondItem="GdZ-2q-h05" secondAttribute="bottom" constant="20" id="liD-wb-PNu"/>
+                            <constraint firstItem="GdZ-2q-h05" firstAttribute="top" secondItem="iLK-y3-Iiz" secondAttribute="top" constant="20" id="mXn-ws-Cf9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iLK-y3-Iiz"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DUl-8N-kLu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-748" y="92.364532019704441"/>
+        </scene>
         <!--Face Classifier View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="FaceClassifierViewController" customModule="Opener" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -65,10 +116,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WDh-It-wF7"/>
                     </view>
+                    <connections>
+                        <outlet property="classLabel" destination="Ocg-nd-XOa" id="6XD-zx-YPw"/>
+                        <outlet property="nameLabel" destination="S0n-Nz-QMd" id="RMl-qO-4Z1"/>
+                        <outlet property="photoImageView" destination="NBn-z1-TAp" id="5wJ-L6-MRT"/>
+                        <outlet property="timeLabel" destination="Sgc-Uc-cpl" id="9z7-PK-Y6a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bj-i3-T4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="986.95652173913049" y="93.75"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="E1k-mj-tlx"/>
+    </inferredMetricsTieBreakers>
 </document>
