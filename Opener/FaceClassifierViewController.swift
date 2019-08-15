@@ -14,7 +14,9 @@ import os.log
 class FaceClassifierViewController: VideoCaptureViewController {
     
     //MARK: Vision 프로퍼티
+    private var faceRequests = [VNDetectFaceRectanglesRequest]()
     private var requests = [VNRequest]()
+    private var face: VNFaceObservation?
     
     //MARK: 프로퍼티
     private var shouldDetect = true
@@ -26,6 +28,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
         super.viewDidLoad()
         setupAVCapture()
         setupVision()
+        setupFaceObservation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +39,21 @@ class FaceClassifierViewController: VideoCaptureViewController {
     
     
     //MARK: Vision
+    
+    func setupFaceObservation() {
+        
+        let faceRequest = VNDetectFaceRectanglesRequest { (request, error) in
+            guard let observations = request.results as? [VNFaceObservation] else {
+                os_log("얼굴 감지가 없음", log: OSLog.default, type: .error)
+                return
+            }
+            self.face = observations.first
+            
+            
+        }
+        faceRequests = [faceRequest]
+        
+    }
     
     func setupVision() {
         
@@ -116,9 +134,29 @@ class FaceClassifierViewController: VideoCaptureViewController {
             return
         }
         
-        let imageRequestHandler = VNImageRequestHandler.init(cvPixelBuffer: pixelBuffer, options: [:])
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:])
+        
         do {
-            try imageRequestHandler.perform(requests)
+            try imageRequestHandler.perform(faceRequests)
+        } catch {
+            return
+        }
+        
+        let image = CIImage(cvImageBuffer: pixelBuffer)
+        
+        guard let face = face else {
+            return
+        }
+        let croppedImage = image.cropImage(toFace: face)
+        
+        
+        
+        
+        let faceRecognitionRequestHandler = VNImageRequestHandler(ciImage: croppedImage, options: [:])
+        
+        
+        do {
+            try faceRecognitionRequestHandler.perform(requests)
         } catch {
             return
         }
