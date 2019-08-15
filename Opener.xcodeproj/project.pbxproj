@@ -12,12 +12,12 @@
 		F202C9CC23043F8A00DEFA65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F202C9CA23043F8A00DEFA65 /* Main.storyboard */; };
 		F202C9CE23043F8C00DEFA65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F202C9CD23043F8C00DEFA65 /* Assets.xcassets */; };
 		F202C9D123043F8C00DEFA65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F202C9CF23043F8C00DEFA65 /* LaunchScreen.storyboard */; };
+		F23E6F4C230543FD00FCB7B3 /* FaceClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F23E6F4B230543FD00FCB7B3 /* FaceClassifier.mlmodel */; };
 		F2B67A06230446EC0081A3F8 /* FaceClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B67A05230446EC0081A3F8 /* FaceClassifierViewController.swift */; };
 		F2B67A08230455FD0081A3F8 /* MemberInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B67A07230455FD0081A3F8 /* MemberInfoViewController.swift */; };
 		F2C6536223046DF0001E3739 /* StateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C6536123046DF0001E3739 /* StateSelectionViewController.swift */; };
 		F2C6536623049084001E3739 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C6536523049084001E3739 /* Member.swift */; };
 		F2F24F79230530F90076DBB2 /* CIImage+FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F24F78230530F90076DBB2 /* CIImage+FaceDetection.swift */; };
-		F2F24F7F230535F10076DBB2 /* FaceClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F2F24F7E230535F10076DBB2 /* FaceClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +28,12 @@
 		F202C9CD23043F8C00DEFA65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F202C9D023043F8C00DEFA65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F202C9D223043F8C00DEFA65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F23E6F4B230543FD00FCB7B3 /* FaceClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FaceClassifier.mlmodel; sourceTree = "<group>"; };
 		F2B67A05230446EC0081A3F8 /* FaceClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceClassifierViewController.swift; sourceTree = "<group>"; };
 		F2B67A07230455FD0081A3F8 /* MemberInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberInfoViewController.swift; sourceTree = "<group>"; };
 		F2C6536123046DF0001E3739 /* StateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSelectionViewController.swift; sourceTree = "<group>"; };
 		F2C6536523049084001E3739 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		F2F24F78230530F90076DBB2 /* CIImage+FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+FaceDetection.swift"; sourceTree = "<group>"; };
-		F2F24F7E230535F10076DBB2 /* FaceClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FaceClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 				F2B67A05230446EC0081A3F8 /* FaceClassifierViewController.swift */,
 				F2F24F78230530F90076DBB2 /* CIImage+FaceDetection.swift */,
 				F2B67A07230455FD0081A3F8 /* MemberInfoViewController.swift */,
-				F2F24F7E230535F10076DBB2 /* FaceClassifier.mlmodel */,
+				F23E6F4B230543FD00FCB7B3 /* FaceClassifier.mlmodel */,
 				F202C9CA23043F8A00DEFA65 /* Main.storyboard */,
 				F202C9CD23043F8C00DEFA65 /* Assets.xcassets */,
 				F202C9CF23043F8C00DEFA65 /* LaunchScreen.storyboard */,
@@ -159,7 +159,7 @@
 				F202C9C923043F8A00DEFA65 /* VideoCaptureViewController.swift in Sources */,
 				F202C9C723043F8A00DEFA65 /* AppDelegate.swift in Sources */,
 				F2F24F79230530F90076DBB2 /* CIImage+FaceDetection.swift in Sources */,
-				F2F24F7F230535F10076DBB2 /* FaceClassifier.mlmodel in Sources */,
+				F23E6F4C230543FD00FCB7B3 /* FaceClassifier.mlmodel in Sources */,
 				F2C6536623049084001E3739 /* Member.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

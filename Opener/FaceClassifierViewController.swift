@@ -69,7 +69,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
                 DispatchQueue.main.async {
                     if let results = request.results {
                         // 신뢰할 수 있는 결과면 표시합니다.
-                        if let result = self.highConfidenceVisionResult(from: results, threshold: 0.98) {
+                        if let result = self.highConfidenceVisionResult(from: results, threshold: 0.99) {
                             if self.shouldDetect {
                                 self.shouldDetect = false
                                 self.detectedMember = Member(name: result.identifier, isEntry: self.isEntry)
