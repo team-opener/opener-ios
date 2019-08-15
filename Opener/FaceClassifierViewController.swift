@@ -17,6 +17,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
     private var requests = [VNRequest]()
     
     //MARK: 프로퍼티
+    private var shouldDetect = true
     var detectedMember: Member!
     var capturedPhoto: UIImage?
     var isEntry: Bool!
@@ -51,7 +52,8 @@ class FaceClassifierViewController: VideoCaptureViewController {
                     if let results = request.results {
                         // 신뢰할 수 있는 결과면 표시합니다.
                         if let result = self.highConfidenceVisionResult(from: results, threshold: 0.99) {
-                            if self.detectedMember == nil {
+                            if self.shouldDetect {
+                                self.shouldDetect = false
                                 self.detectedMember = Member(name: result.identifier, isEntry: self.isEntry)
                                 self.capturePhoto()
                                 self.teardownAVCapture()
@@ -92,13 +94,16 @@ class FaceClassifierViewController: VideoCaptureViewController {
         request.httpBody = data
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                os_log("데이터 없음", log: OSLog.default, type: .error)
-                return
-            }
-            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-            if let responseJSON = responseJSON as? [String: Any] {
-                print(responseJSON)
+            
+            DispatchQueue.global().async {
+                guard let data = data, error == nil else {
+                    os_log("데이터 없음", log: OSLog.default, type: .error)
+                    return
+                }
+                let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let responseJSON = responseJSON as? [String: Any] {
+                    print(responseJSON)
+                }
             }
         }
 
