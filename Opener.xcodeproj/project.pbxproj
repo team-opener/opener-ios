@@ -15,8 +15,8 @@
 		F2B67A06230446EC0081A3F8 /* FaceClassifierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B67A05230446EC0081A3F8 /* FaceClassifierViewController.swift */; };
 		F2B67A08230455FD0081A3F8 /* MemberInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B67A07230455FD0081A3F8 /* MemberInfoViewController.swift */; };
 		F2C6536223046DF0001E3739 /* StateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C6536123046DF0001E3739 /* StateSelectionViewController.swift */; };
-		F2C6536423047249001E3739 /* FaceClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F2C6536323047249001E3739 /* FaceClassifier.mlmodel */; };
 		F2C6536623049084001E3739 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C6536523049084001E3739 /* Member.swift */; };
+		F2EB3AA62304DC3700914EEA /* FaceClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F2EB3AA52304DC3700914EEA /* FaceClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +30,8 @@
 		F2B67A05230446EC0081A3F8 /* FaceClassifierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceClassifierViewController.swift; sourceTree = "<group>"; };
 		F2B67A07230455FD0081A3F8 /* MemberInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberInfoViewController.swift; sourceTree = "<group>"; };
 		F2C6536123046DF0001E3739 /* StateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSelectionViewController.swift; sourceTree = "<group>"; };
-		F2C6536323047249001E3739 /* FaceClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FaceClassifier.mlmodel; sourceTree = "<group>"; };
 		F2C6536523049084001E3739 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		F2EB3AA52304DC3700914EEA /* FaceClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FaceClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,11 +66,11 @@
 			children = (
 				F202C9C623043F8A00DEFA65 /* AppDelegate.swift */,
 				F2C6536523049084001E3739 /* Member.swift */,
-				F202C9C823043F8A00DEFA65 /* VideoCaptureViewController.swift */,
 				F2C6536123046DF0001E3739 /* StateSelectionViewController.swift */,
+				F202C9C823043F8A00DEFA65 /* VideoCaptureViewController.swift */,
 				F2B67A05230446EC0081A3F8 /* FaceClassifierViewController.swift */,
 				F2B67A07230455FD0081A3F8 /* MemberInfoViewController.swift */,
-				F2C6536323047249001E3739 /* FaceClassifier.mlmodel */,
+				F2EB3AA52304DC3700914EEA /* FaceClassifier.mlmodel */,
 				F202C9CA23043F8A00DEFA65 /* Main.storyboard */,
 				F202C9CD23043F8C00DEFA65 /* Assets.xcassets */,
 				F202C9CF23043F8C00DEFA65 /* LaunchScreen.storyboard */,
@@ -155,8 +155,8 @@
 				F2C6536223046DF0001E3739 /* StateSelectionViewController.swift in Sources */,
 				F202C9C923043F8A00DEFA65 /* VideoCaptureViewController.swift in Sources */,
 				F202C9C723043F8A00DEFA65 /* AppDelegate.swift in Sources */,
+				F2EB3AA62304DC3700914EEA /* FaceClassifier.mlmodel in Sources */,
 				F2C6536623049084001E3739 /* Member.swift in Sources */,
-				F2C6536423047249001E3739 /* FaceClassifier.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,11 +45,12 @@ class FaceClassifierViewController: VideoCaptureViewController {
         
         do {
             let visionModel = try VNCoreMLModel(for: MLModel(contentsOf: modelURL))
+            
             let faceObservation = VNCoreMLRequest(model: visionModel) { (request, error) in
                 DispatchQueue.main.async {
                     if let results = request.results {
                         // 신뢰할 수 있는 결과면 표시합니다.
-                        if let result = self.highConfidenceVisionResult(from: results, threshold: 0.1) {
+                        if let result = self.highConfidenceVisionResult(from: results, threshold: 0.99) {
                             if self.detectedMember == nil {
                                 self.detectedMember = Member(name: result.identifier, isEntry: self.isEntry)
                                 self.capturePhoto()
@@ -73,7 +74,8 @@ class FaceClassifierViewController: VideoCaptureViewController {
             os_log("잘못된 Vision Result 타입", log: OSLog.default, type: .error)
             return nil
         }
-        if top.confidence > threshold {
+        print("\(top.identifier) - \(top.confidence)")
+        if top.confidence > threshold, top.identifier != "unknown" {
             return top
         }
         return nil
