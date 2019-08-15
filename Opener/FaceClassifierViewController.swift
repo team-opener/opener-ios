@@ -108,6 +108,7 @@ class FaceClassifierViewController: VideoCaptureViewController {
         let uploadURL = URL(string: "http://192.168.1.68:3000/entry")!
         var request = URLRequest(url: uploadURL)
         request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
 
         request.httpBody = data
 
