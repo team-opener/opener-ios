@@ -33,6 +33,7 @@
 		F2B67A07230455FD0081A3F8 /* MemberInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberInfoViewController.swift; sourceTree = "<group>"; };
 		F2C6536123046DF0001E3739 /* StateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSelectionViewController.swift; sourceTree = "<group>"; };
 		F2C6536523049084001E3739 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		F2E080522311872D0088D19F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F2F24F78230530F90076DBB2 /* CIImage+FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+FaceDetection.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,6 +51,7 @@
 		F202C9BA23043F8A00DEFA65 = {
 			isa = PBXGroup;
 			children = (
+				F2E080522311872D0088D19F /* README.md */,
 				F202C9C523043F8A00DEFA65 /* Opener */,
 				F202C9C423043F8A00DEFA65 /* Products */,
 			);
